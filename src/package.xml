@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>WEB_Form2AnyObject_Ctrl</members>
+        <members>WEB_FormAnyObject_REST</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>WEB_Form2AnyObject_Page</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Web_Form_To_Anything</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Web2Anything</members>
+        <name>CustomTab</name>
+    </types>
+    <version>23.0</version>
+</Package>

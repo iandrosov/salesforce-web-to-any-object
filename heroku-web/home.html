@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>        
+  function handleFileSelect()
+  {               
+    if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
+      alert('The File APIs are not fully supported in this browser.');
+      return;
+    }   
+
+    input = document.getElementById('fileinput');
+    if (!input) {
+      alert("Um, couldn't find the fileinput element.");
+    }
+    else if (!input.files) {
+      alert("This browser doesn't seem to support the `files` property of file inputs.");
+    }
+    else if (!input.files[0]) {
+      // Optio validation
+      //alert("Please select a file before clicking 'Load'"); 
+      //
+      // If no file still send a form we want to cfreata object record data without file attached
+      document.web2anyform.submit();
+
+    }
+    else {
+      file = input.files[0];
+      fr = new FileReader();
+      fr.onload = receivedText;
+      //fr.readAsText(file);
+      fr.readAsDataURL(file);
+
+    }
+  }
+
+  function receivedText() {           
+    	//result = fr.result;
+        //document.getElementById('editor').appendChild(document.createTextNode(fr.result))
+        //<div id="editor"></div>
+		//<input type="submit" name="submit" />
+        document.getElementById("fileContents").value = fr.result;
+        //Submit form data
+        document.web2anyform.submit();
+  }           
+
+</script>
+	</head>
+	<body>
+<form name="web2anyform" id="web2anyform" action="https://natsteeldemo-developer-edition.na9.force.com/services/apexrest/anyobject" method="POST" 
+>
+<input type="hidden" name="otype" value="Case" />
+<input type="hidden" name="retURL" value="http://" />
+<input type="hidden" name="encoding" value="UTF-8" />
+<input type="hidden" name="fileContents" value="" id="fileContents" />
+
+<label for="Origin">Case Origin</label>
+<input id="Origin" name="Origin" maxlength="40" size="20" type="text" value="web"/><br/>
+<label for="Reason">Case Reason</label>
+<input id="Reason" name="Reason" maxlength="40" size="20" type="text" value="Test case"/><br/>
+<label for="Type">Case Type</label>
+<input id="Type" name="Type" maxlength="40" size="20" type="text" value="Mechanical"/><br/>
+<p>
+	
+Please select a file to attach:<br>
+<input type="file" id="fileinput" name="fileattachment" >
+<br>
+<input type='button' id='btnLoad' value='Submit' onclick='handleFileSelect();'>
+
+</form>
+</body>
+</html>
