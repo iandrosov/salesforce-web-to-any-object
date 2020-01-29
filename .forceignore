@@ -10,3 +10,11 @@ package.xml
 
 # LWC Jest
 **/__tests__/**
+
+# Ignore Profile related changes in DX
+**profilePasswordPolicies**
+**profiles**
+**profileSessionSettigs**
+
+# Component
+AppSwitcher.appMenu

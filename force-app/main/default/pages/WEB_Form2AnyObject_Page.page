@@ -1,4 +1,4 @@
-<apex:page controller="WEB_Form2AnyObject_Ctrl">
+<apex:page controller="WEB_Form2AnyObject_Ctrl" lightningStylesheets="true">
 	<apex:pageBlock title="Create Web Form for Selected Object" id="theWebFormBlock">
 		<apex:pageMessages />
 		<apex:form >

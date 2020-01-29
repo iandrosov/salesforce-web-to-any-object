@@ -1,6 +1,6 @@
 /**
  * Controller class for UI component to build
- * a web form to submit data for new records via sites
+ * a web form to submit data for new records via Force.com sites
  * URL and REST service
  *
  * Author: i.Androsov
@@ -24,13 +24,23 @@ public class WEB_Form2AnyObject_Ctrl {
 	public List<SelectOption> getSiteURL(){
 		List<SelectOption> options = new List<SelectOption>();
 		
-		List<Site> siteLst = [SELECT Id, Name, Subdomain, UrlPathPrefix, Status FROM Site where Status = 'Active' LIMIT 100];
+		List<Site> siteLst = [SELECT Id, Name, MasterLabel, Description, Subdomain, UrlPathPrefix, Status FROM Site where Status = 'Active' LIMIT 100];
+		List<ID> siteIdList = new List<ID> ();
+		Map<ID, String> siteMap = new Map<ID, String>();
 		for (Site s : siteLst){
-			options.add(new SelectOption('https://'+s.Subdomain,s.Name));
+			siteIdList.add(s.Id);
+			siteMap.put(s.Id,s.Name);
+		}
+
+		List<SiteDetail> siteDetailList = [SELECT Id, DurableId, SecureUrl FROM SiteDetail WHERE DurableId IN :siteIdList]; 
+		for (SiteDetail d : siteDetailList){
+			options.add(new SelectOption(d.SecureUrl, (String)siteMap.get(d.DurableId)));
 		}
 		options.sort();
 		return options;
 	} 
+
+
 
 	public List<SelectOption> getObjectList(){
 		List<SelectOption> options = new List<SelectOption>();
@@ -79,7 +89,7 @@ public class WEB_Form2AnyObject_Ctrl {
 	
 	public String getWebFormHTML(){
 		
-		String htm = '<form action="' + this.selectedSiteURL + '.na9.force.com/services/apexrest/anyobject" method="POST">\n';
+		String htm = '<form action="' + this.selectedSiteURL + '/services/apexrest/anyobject" method="POST">\n';
 		htm += '<input type="hidden" name="otype" value="' + this.selectedObject + '" />\n';
 		htm += '<input type="hidden" name="retURL" value="http://" />\n';
 		htm += '<input type="hidden" name="encoding" value="UTF-8" />\n';
@@ -137,22 +147,5 @@ public class WEB_Form2AnyObject_Ctrl {
 		}
 		return false;
 	}
-
-  @isTest
-  public static void testWEBForm2AnythingController(){
-  	WEB_Form2AnyObject_Ctrl myController = new WEB_Form2AnyObject_Ctrl();
-  	
-  	List<SelectOption> siteOptions = myController.getSiteURL();
-  	List<SelectOption> objectOptions = myController.getObjectList();
-  	myController.selectedObject = 'Account';
-  	myController.selectedSiteURL = 'https://natsteeldemo-developer-edition.na9.force.com/';
-  	List<SelectOption> fldList = myController.getFieldList();
-  	myController.selectedFields = new String[]{'name'};
-  	String html = myController.getWebFormHTML();
-  	
-  	PageReference pr = myController.updateObjectFields();
-  	pr = myController.createWebForm();  	
-  	
-  }
 
 }

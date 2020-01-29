@@ -15,13 +15,13 @@
 
 @RestResource(urlMapping='/anyobject')
 global class WEB_FormAnyObject_REST {
-
+//global static String doAnything(RestRequest req)
 	@HttpPost
-	global static String doAnything(RestRequest req, RestResponse resp) {
+	global static String doAnything() {
 
 		// This is documented in Summer 12 REST API Developer Guide but does not work
 		// RestContext fields are allways null		
-		// RestRequest req = RestContext.request;
+		 RestRequest req = RestContext.request;
 	    // RestContext.response.addHeader('Content-Type', 'text/plain');
 	    // RestContext.response.responseBody = Blob.valueOf('Hello '+name+' Type: '+o_type);
 		
@@ -61,19 +61,5 @@ global class WEB_FormAnyObject_REST {
         }
 		return targetType.newSObject();
 	}
-
-  @isTest
-  public static void testWEBForm2AnythingController(){
-  	
-  	// Prep data
-  	RestRequest req = new RestRequest(); 
-  	RestResponse resp = new RestResponse();
-  	//String s = WEB_FormAnyObject_REST.doAnything(req, resp);
-  	req.params.put('otype','Account');
-  	req.params.put('name','ai_Web2AnyTest');
-  	
-  	String s = WEB_FormAnyObject_REST.doAnything(req, resp);
-  	  	
-  }
 
 }
