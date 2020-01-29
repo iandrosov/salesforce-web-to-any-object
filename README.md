@@ -82,6 +82,18 @@ There are two ways to install Web2AnyObject App:
 
 1. In App Launcher, select the **Web 2 Any Object** app.
 
+## After Install Manual Configuration
+
+This package requires Admin manula configuration
+
+1. Navigate to Org Settings->Sites and select site domain. (Can use existing site)
+
+1. Create New site with name and all configurations
+
+1. Using Public Access setting add REST Apex class `WEB_FormAnyObject_REST` to Guest User profile
+
+1. Activate new site, if it is not active.
+
 ## Resources
 
 

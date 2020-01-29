@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Get org argument
+DX_ALIAS="$1"
+DEVHUB="DevHub"
+
+# Create DX Org for Project
+sfdx force:org:create --setdefaultusername --setalias $DX_ALIAS --definitionfile config/project-scratch-def.json -d 2
+## sfdx force:org:create --setdefaultusername --setalias web --definitionfile config/project-scratch-def.json -d 30
+
+# Push Project source to new org
+sfdx force:source:push -u $DX_ALIAS
+
+# assign permission for Scratch org
+sfdx force:user:permset:assign -n Web2Any
+
+# Add sample data
