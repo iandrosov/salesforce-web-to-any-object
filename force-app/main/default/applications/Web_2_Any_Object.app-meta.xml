@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#78179B</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>LEX App enable web 2 any custom or standard object</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Web 2 Any Object</label>
+    <navType>Standard</navType>
+    <tabs>Web2Anything</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Web_2_Any_Object_UtilityBar</utilityBar>
+</CustomApplication>
