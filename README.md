@@ -70,7 +70,7 @@ There are two ways to install Web2AnyObject App:
 1. In App Launcher, select the **Web 2 Any Object** app.
 
 
-## Installing Permission Navigator using an Unlocked Package
+## Installing Web2AnyObject using an Unlocked Package
 
 1. [Sign up](https://www.salesforce.com/form/signup/) for a Developer org or use your existing sandbox, enable My Domain, and deploy it to all users.
 
