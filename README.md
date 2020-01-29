@@ -96,7 +96,7 @@ Follow tehse steps to setup this app in teh scratch org for development. Alterna
 
 1. [Sign up](https://www.salesforce.com/form/signup/) for a Developer org or use your existing sandbox, enable My Domain, and deploy it to all users.
 
-1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04) to install the unlocked package in your target org.
+1. Click [this link](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3Z000001ae19QAA) to install the unlocked package in your target org.
 
 1. Select **Install for Admin Users**
 
