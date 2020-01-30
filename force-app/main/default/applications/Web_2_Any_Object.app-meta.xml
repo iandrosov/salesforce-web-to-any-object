@@ -11,6 +11,7 @@
     <label>Web 2 Any Object</label>
     <navType>Standard</navType>
     <tabs>Web2Anything</tabs>
+    <tabs>Web2Any_Sample__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Web_2_Any_Object_UtilityBar</utilityBar>
 </CustomApplication>
