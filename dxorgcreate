@@ -5,8 +5,8 @@ DX_ALIAS="$1"
 DEVHUB="DevHub"
 
 # Create DX Org for Project
-sfdx force:org:create --setdefaultusername --setalias $DX_ALIAS --definitionfile config/project-scratch-def.json -d 2
-## sfdx force:org:create --setdefaultusername --setalias amicadx6 --definitionfile config/project-scratch-def.json -d 30
+sfdx force:org:create --setdefaultusername --setalias $DX_ALIAS --definitionfile config/project-scratch-def.json -d 20
+## sfdx force:org:create --setdefaultusername --setalias pkg1 --definitionfile config/project-scratch-def.json -d 30
 
 # Push Project source to new org
 sfdx force:source:push -u $DX_ALIAS
