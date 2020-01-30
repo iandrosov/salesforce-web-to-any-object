@@ -24,6 +24,18 @@ node_modules/
 
 # MacOS system files
 .DS_Store
+.project
+.salesforce
+.settings
+node_modules
+.idea
+destroy.sh
+envvars.sh
+test.sh
+salesforcedx.sh
+.vscode
+mdapiout
+test.yml
 
 # Windows system files
 Thumbs.db
